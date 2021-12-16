@@ -21,6 +21,7 @@ import {
   QueryType,
 } from "./types";
 import { IntrospectionInputType } from "graphql";
+import { IntrospectedResource } from "ra-data-graphql";
 
 const NON_UPDATABLE_FIELDS = ["id", "createdAt", "updatedAt"];
 
@@ -138,7 +139,7 @@ const prepareParams = (
 
 const buildGetListVariables =
   (introspectionResults: IntrospectionResults) =>
-  (resource: Resource, aorFetchType: FetchType, params: any) => {
+  (resource: IntrospectedResource, aorFetchType: FetchType, params: any) => {
     let variables: { [key: string]: any } = {};
 
     if (params.filter) {
@@ -191,7 +192,7 @@ const buildGetListVariables =
           const resourceField = resource.type.fields.find(
             (f) => f.name === parts[0]
           );
-          const type = getFinalType(resourceField?.type);
+          const type = getFinalType(resourceField!.type);
           return {
             ...acc,
             [key]: sanitizeValue(type, params.filter[key]),
@@ -248,7 +249,7 @@ const getCreateUpdateInputType = (
   queryType: QueryType
 ): IntrospectionInputType => {
   const inputType = queryType.args.find((arg) => arg.name === "data");
-  return getFinalType(inputType?.type);
+  return getFinalType(inputType!.type);
 };
 
 const getInputTypeFieldsNames = (
