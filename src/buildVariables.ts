@@ -9,7 +9,7 @@ import {
   DELETE,
 } from "ra-core";
 
-import getFinalType from "./getFinalType";
+import getFinalType from "ra-data-graphql-simple/src/getFinalType";
 import isList from "./isList";
 import {
   IntrospectionResults,

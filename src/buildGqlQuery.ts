@@ -2,10 +2,9 @@ import { GET_LIST, GET_MANY, GET_MANY_REFERENCE, DELETE } from "ra-core";
 import { QUERY_TYPES } from "ra-data-graphql";
 import { TypeKind } from "graphql";
 import * as gqlTypes from "graphql-ast-types-browser";
-
-import getFinalType from "./getFinalType";
+import isRequired from "ra-data-graphql-simple/src/isRequired";
+import getFinalType from "ra-data-graphql-simple/src/getFinalType";
 import isList from "./isList";
-import isRequired from "./isRequired";
 import {
   FetchType,
   IntrospectionResults,
