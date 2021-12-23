@@ -10,7 +10,7 @@ import {
 } from "ra-core";
 
 import getFinalType from "ra-data-graphql-simple/src/getFinalType";
-import isList from "./isList";
+import isList from "ra-data-graphql-simple/src/isList";
 import {
   IntrospectionResults,
   IntrospectionType,

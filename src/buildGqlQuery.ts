@@ -4,7 +4,7 @@ import { TypeKind } from "graphql";
 import * as gqlTypes from "graphql-ast-types-browser";
 import isRequired from "ra-data-graphql-simple/src/isRequired";
 import getFinalType from "ra-data-graphql-simple/src/getFinalType";
-import isList from "./isList";
+import isList from "ra-data-graphql-simple/src/isList";
 import {
   FetchType,
   IntrospectionResults,
